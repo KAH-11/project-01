@@ -23,3 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post("login",[SessionController::class,'Login']);
 Route::get("logout",[SessionController::class,'Logout'])->middleware('auth:sanctum');
 Route::resource(name:'users',controller:UserController::class)->middleware(['auth:sanctum','role:super-admin']);
+Route::resource(name:'products',controller:ProductController::class)->middleware(['auth:sanctum']);
+Route::resource(name:'categories',controller:CategoryController::class)->middleware(['auth:sanctum']);
