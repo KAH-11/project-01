@@ -26,7 +26,7 @@ class CategoryController extends Controller
     function store(Request $request)
     {
         $validated=$request->validate([
-            'name' => 'required|unique',
+            'name' => 'required',
         ]);
 
         $new_category= Category::create([
@@ -53,7 +53,7 @@ class CategoryController extends Controller
     {
 
         $validated=$request->validate([
-            'name' => 'required|unique',
+            'name' => 'required',
         ]);
 
         $category->name = $request->name;

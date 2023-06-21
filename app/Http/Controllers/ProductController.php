@@ -27,7 +27,7 @@ class ProductController extends Controller
     function store(Request $request)
     {
         $validated=$request->validate([
-            'name' => 'required|unique',
+            'name' => 'required',
             'price' => 'required',
             'image' => 'required',
             'description' => 'required',
@@ -61,7 +61,7 @@ class ProductController extends Controller
     {
 
         $validated=$request->validate([
-            'name' => 'required|unique',
+            'name' => 'required',
             'price' => 'required',
             'image' => 'required',
             'description' => 'required',
