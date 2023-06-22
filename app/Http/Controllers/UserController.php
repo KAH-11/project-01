@@ -29,7 +29,7 @@ class UserController extends Controller
     {
         $validated=$request->validate([
             'name' => 'required',
-            'email' => 'required|email:rfc,dns|distinct:ignore_case',
+            'email' => 'required|unique:users',
             'password' => 'required'
         ]);
 
@@ -59,7 +59,7 @@ class UserController extends Controller
     {
 
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:users',
             'password' => 'required'
         ]);
 
