@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class CategoryController extends Controller
 {
@@ -30,8 +31,8 @@ class CategoryController extends Controller
         ]);
 
         $new_category= Category::create([
-            'name' => $request->name,
-            'is_active' => True,
+            'name' => $request->name
+            // 'is_active' => True,
         ]);
 
         $response = [
