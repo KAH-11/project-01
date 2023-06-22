@@ -31,8 +31,8 @@ class CategoryController extends Controller
         ]);
 
         $new_category= Category::create([
-            'name' => $request->name
-            // 'is_active' => True,
+            'name' => $request->name,
+            'is_active' => True,
         ]);
 
         $response = [
