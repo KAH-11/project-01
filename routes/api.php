@@ -34,11 +34,11 @@ Route::post("login",[SessionController::class,'Login']);
 Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::get("logout",[SessionController::class,'Logout']);
-    Route::resource(name:'products',controller:ProductController::class);
-    Route::resource(name:'categories',controller:CategoryController::class);
 
     Route::middleware(['role:super-admin'])->group(function () {
         Route::resource(name:'users',controller:UserController::class);
+        Route::resource(name:'products',controller:ProductController::class);
+        Route::resource(name:'categories',controller:CategoryController::class);
     });
 
 });

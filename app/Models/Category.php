@@ -10,10 +10,14 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $guarded = [
+    protected $fillable = [
         'id',
         'name',
         'is_active'
+    ];
+
+    protected $guarded = [
+
     ];
 
     public function products():HasMany{

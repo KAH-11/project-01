@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('image');
             $table->text('description');
             $table->unsignedBigInteger('cat_id');
-            $table->foreign('cat_id')->references('id')->on('categories');
+            $table->foreign('cat_id')->references('id')->on('categories')->onDelete('set null');
             $table->timestamps();
         });
     }
@@ -28,6 +28,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        $table->dropForeign(['cat_id']);
         Schema::dropIfExists('products');
     }
 };
