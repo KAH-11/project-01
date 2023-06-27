@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id('id');
             $table->string('name')->unique();
             $table->float('price');
-            $table->string('image');
-            $table->text('description');
-            $table->unsignedBigInteger('cat_id');
-            $table->foreign('cat_id')->references('id')->on('categories')->onDelete('set null');
+            $table->string('image')->nullable();
+            $table->text('description')->nullable();
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
             $table->timestamps();
         });
     }
@@ -28,7 +28,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        $table->dropForeign(['cat_id']);
+        $table->dropForeign(['category_id']);
         Schema::dropIfExists('products');
     }
 };

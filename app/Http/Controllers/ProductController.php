@@ -35,10 +35,14 @@ class ProductController extends Controller
             'cat_id' => 'required',
         ]);
 
+        $fileName = time().$request->file('image')->getClientOriginalName();
+        $path = $request->file('image')->storeAs('images',$fileName,'public');
+        $imagePath = '/storage/'.$path;
+
         $new_product= Product::create([
             'name' => $request->name,
             'price' => $request->price,
-            'image' => $request->image,
+            'image' => $imagePath,
             'description' => $request->description,
             'cat_id' => $request->cat_id,
         ]);
