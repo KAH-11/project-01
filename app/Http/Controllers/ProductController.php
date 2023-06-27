@@ -30,7 +30,6 @@ class ProductController extends Controller
         $validated=$request->validate([
             'name' => 'required|unique:products',
             'price' => 'required',
-            'image' => 'required',
             'description' => 'required',
             'cat_id' => 'required',
         ]);
@@ -44,7 +43,7 @@ class ProductController extends Controller
             'price' => $request->price,
             'image' => $imagePath,
             'description' => $request->description,
-            'cat_id' => $request->cat_id,
+            'category_id' => $request->cat_id,
         ]);
 
         $response = [
@@ -70,7 +69,7 @@ class ProductController extends Controller
             'price' => 'required',
             'image' => 'required',
             'description' => 'required',
-            'cat_id' => 'required',
+            'category_id' => 'required',
         ]);
 
         $product->name = $request->name;
