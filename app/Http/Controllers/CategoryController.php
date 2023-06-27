@@ -57,7 +57,6 @@ class CategoryController extends Controller
         ]);
 
         $category->name = $request->name;
-        $category->is_active = $request->is_active;
         $category->save();
 
         $response = [
