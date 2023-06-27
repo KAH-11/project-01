@@ -10,11 +10,10 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'id',
-        'name',
-        'is_active'
-    ];
+    // protected $fillable = [
+    //     'id',
+    //     'name',
+    // ];
 
     protected $guarded = [
 

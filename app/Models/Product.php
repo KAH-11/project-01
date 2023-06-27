@@ -10,14 +10,14 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'id',
-        'name',
-        'price',
-        'image',
-        'description',
-        'cat_id'
-    ];
+    // protected $fillable = [
+    //     'id',
+    //     'name',
+    //     'price',
+    //     'image',
+    //     'description',
+    //     'cat_id'
+    // ];
 
     protected $guarded = [
 

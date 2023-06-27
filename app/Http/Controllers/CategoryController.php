@@ -53,10 +53,12 @@ class CategoryController extends Controller
     {
 
         $validated=$request->validate([
-            'name' => 'required|unique:categories',
+            'name' => 'required|unique:categories,name,' .$category->id ,
+            'is_active' => 'required'
         ]);
 
         $category->name = $request->name;
+        $category->is_active = $request->is_active;
         $category->save();
 
         $response = [
