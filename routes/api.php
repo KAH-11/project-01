@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ExportController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,13 +24,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::group(['middleware' => 'auth:sanctum'] , function(){
-//     Route::get("logout",[SessionController::class,'Logout']);
-//     Route::resource(name:'users',controller:UserController::class)->middleware(['role:super-admin']);
-//     Route::resource(name:'products',controller:ProductController::class);
-//     Route::resource(name:'categories',controller:CategoryController::class);
-// });
-
 Route::post("login",[SessionController::class,'Login']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
@@ -39,6 +34,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::resource(name:'users',controller:UserController::class);
         Route::resource(name:'products',controller:ProductController::class);
         Route::resource(name:'categories',controller:CategoryController::class);
+        Route::get("export-products",[ExportController::class,'export']);
     });
 
 });
