@@ -8,6 +8,7 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ExportController;
+use App\Http\Controllers\ImportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::resource(name:'products',controller:ProductController::class);
         Route::resource(name:'categories',controller:CategoryController::class);
         Route::get("export-products",[ExportController::class,'export']);
+        Route::post("import-products",[ImportController::class,'import']);
     });
 
 });
